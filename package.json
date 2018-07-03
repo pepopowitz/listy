@@ -1,16 +1,23 @@
 {
   "name": "listy",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "react": "^16.4.1",
-    "react-dom": "^16.4.1",
-    "react-scripts": "1.1.4"
-  },
+  "version": "1.0.0",
+  "description": "An app for lists",
+  "main": "index.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "start": "concurrently \"npm run server\" \"npm run client\" -n SERVER,CLIENT -c bgBlue,bgGreen,bgYellow",
+    "server": "nodemon server.js --exec babel-node --presets env",
+    "client": "node start-client.js"
+  },
+  "author": "Steven J Hicks",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "concurrently": "^3.6.0",
+    "nodemon": "^1.17.5"
+  },
+  "dependencies": {
+    "express": "^4.16.3"
   }
 }
