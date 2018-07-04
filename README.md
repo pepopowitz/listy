@@ -34,7 +34,7 @@ This will start up both the React app and API in a single terminal. Changes to e
 
 ### Using the Twitter data source
 
-The Twitter data source contains lists of puppies and kittens. To use this data source, you'll need to fill in some API keys from Twitter.
+The Twitter data source interacts with the Twitter API to associate people you follow with lists that you own. To use this data source, you'll need to fill in some API keys from Twitter.
 
 In the root of this repo is a file named .env.example. This is a sample environment file, illustrating all the keys you'll need to fill in. You'll want to copy this file to one named .env, then fill in each of the keys in the .env file. You'll want to replace the `?????___?????` strings with your keys from Twitter.
 
