@@ -1,9 +1,18 @@
 import { Router } from 'express';
-import { index } from './fake-lists';
+import * as fakeLists from './fake-lists';
+import * as twitterLists from './twitter-lists';
+
+function getBackend() {
+  if (process.env.APP_BACKEND === 'twitter') { 
+    return twitterLists;
+  }
+  return fakeLists;
+}
 
 var routes = Router()
 
-// TODO - toggle backend based on APP_BACKEND
-routes.get('/', index);
+const backend = getBackend();
+routes.get('/', backend.index);
 
 export default routes;
+

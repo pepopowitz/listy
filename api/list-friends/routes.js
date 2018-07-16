@@ -1,11 +1,19 @@
 import { Router } from 'express';
-import { index, addFriendsToList, removeFriendsFromList } from './fake-list-friends';
+import * as fakeListFriends from './fake-list-friends';
+import * as twitterListFriends from './twitter-list-friends';
+
+function getBackend() {
+  if (process.env.APP_BACKEND === 'twitter') { 
+    return twitterListFriends;
+  }
+  return fakeListFriends;
+}
 
 var routes = Router({ mergeParams: true });
 
-// TODO - toggle backend based on APP_BACKEND
-routes.get('/', index);
-routes.post('/add-many', addFriendsToList);
-routes.post('/remove-many', removeFriendsFromList);
+const backend = getBackend();
+routes.get('/', backend.index);
+routes.post('/add-many', backend.addFriendsToList);
+routes.post('/remove-many', backend.removeFriendsFromList);
 
 export default routes;
