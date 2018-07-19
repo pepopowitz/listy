@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import * as fakeFriends from './fake-friends';
-import * as twitterFriends from './twitter-friends';
+import * as fakeFriends from './fake';
+import * as twitterFriends from './twitter';
 
 function getBackend() {
   if (process.env.APP_BACKEND === 'twitter') { 
