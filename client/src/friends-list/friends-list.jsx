@@ -1,4 +1,6 @@
 import React from 'react';
+import Friend from './friend';
+import './friends-list.css';
 
 export default function({ friends }) {
   if (!friends || friends.length === 0) {
@@ -6,9 +8,15 @@ export default function({ friends }) {
   }
 
   return (
-    <div>
+    <div className="friends-list">
       <h2>My Friends!</h2>
-      <ul>{friends.map(friend => <li key={friend.id}>{friend.name}</li>)}</ul>
+      <ul>
+        {friends.map(friend => (
+          <li key={friend.id}>
+            <Friend friend={friend} />
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
