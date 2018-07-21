@@ -1,11 +1,5 @@
 import getTwitterClient from '../../junk-drawer/get-twitter-client.js';
 
-export async function getListFriendsForCurrentUser(listId) {
-  const client = getTwitterClient();
-
-  return await client.get('lists/members', { list_id: listId, count: 1000 });
-}
-
 export async function addFriendsToList(listId, friendIds) {
   const client = getTwitterClient();
 

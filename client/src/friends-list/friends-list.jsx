@@ -2,7 +2,7 @@ import React from 'react';
 import Friend from './friend';
 import './friends-list.css';
 
-export default function({ friends }) {
+export default function({ friends, lists }) {
   if (!friends || friends.length === 0) {
     return <h2>Loading....</h2>;
   }
@@ -10,13 +10,17 @@ export default function({ friends }) {
   return (
     <div className="friends-list">
       <h2>My Friends!</h2>
-      <ul>
-        {friends.map(friend => (
-          <li key={friend.id}>
-            <Friend friend={friend} />
-          </li>
-        ))}
-      </ul>
+      <table>
+        <thead>
+          <tr>
+            <th>Friend</th>
+            {lists.map(list => <th key={list.id}>{list.name}</th>)}
+          </tr>
+        </thead>
+        <tbody>
+          {friends.map(friend => <Friend friend={friend} key={friend.id} />)}
+        </tbody>
+      </table>
     </div>
   );
 }

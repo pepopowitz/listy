@@ -1,3 +1,28 @@
-.friends-list > ul {
-  list-style: none;
+.friends-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.friends-list table {
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+.friends-list thead th {
+  width: 30px;
+  /* transform: 
+    translate(25px, 51px)
+    rotate(315deg); */
+}
+
+.friends-list thead th:nth-child(1) {
+  width: 250px;
+}
+
+.friends-list th,
+.friends-list td {
+  padding: 5px;
+  border-collapse: collapse;
+  border: 1px solid blueviolet;  
 }
