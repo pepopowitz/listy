@@ -3,6 +3,15 @@ import mapTwitterListsToLocalLists from './map-twitter-lists-to-local-lists.js';
 import mapLocalListsAndTwitterFriendsToLocalListsAndFriends from './map-local-lists-and-twitter-friends-to-local-lists-and-friends.js';
 
 export async function index(req, res) {
+  const twitterResponse = await getListsForCurrentUser();
+
+  const localResponse = mapTwitterListsToLocalLists(twitterResponse);
+
+  res.json(localResponse);
+}
+
+// TODO - this isn't really used anymore. clean it up?????
+export async function getListsWithFriends(req, res) {
   const twitterLists = await getListsForCurrentUser();
   const localLists = mapTwitterListsToLocalLists(twitterLists);
   

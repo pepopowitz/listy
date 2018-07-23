@@ -18,7 +18,7 @@ export default function({ friends, lists }) {
           </tr>
         </thead>
         <tbody>
-          {friends.map(friend => <Friend friend={friend} key={friend.id} />)}
+          {friends.map(friend => <Friend friend={friend} lists={lists} key={friend.id} />)}
         </tbody>
       </table>
     </div>

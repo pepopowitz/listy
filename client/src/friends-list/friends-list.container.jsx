@@ -1,7 +1,7 @@
 import React from 'react';
 
 import getFriends from './get-friends';
-import mapFriendsAndLists from './map-friends-and-lists';
+import getLists from './get-lists';
 
 import FriendsList from './friends-list';
 
@@ -12,26 +12,13 @@ export default class FriendsListContainer extends React.Component {
   };
 
   async componentDidMount() {
-    const friends = await getFriends();
-    const lists = [
-      {
-        id: '1',
-        name: 'list 1',
-      },
-      {
-        id: '2',
-        name: 'list 2',
-      },
-      {
-        id: '3',
-        name: 'list 3',
-      },
-    ];
-
-    const friendsWithLists = mapFriendsAndLists(friends);
+    const [friends, lists] = await Promise.all([
+      getFriends(),
+      getLists()
+    ]);
 
     this.setState({
-      friends: friendsWithLists,
+      friends,
       lists,
     });
   }

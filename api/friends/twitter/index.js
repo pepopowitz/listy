@@ -1,10 +1,43 @@
-import { getFriendsForCurrentUser } from './api-client.js';
-import mapTwitterToLocal from './map-twitter-to-local.js';
+import {
+  getFriendsForCurrentUser,
+  getListsForCurrentUser,
+  getFriendsInList,
+} from './api-client.js';
+import mapTwitterFriendsToLocalFriends from './map-twitter-friends-to-local-friends.js';
+import mapFriendsAndListsToFriendsWithEmbeddedLists from './map-friends-and-lists-to-friends-with-embedded-lists.js';
+import mapTwitterFriendsInListsToLocalFriendsInLists from './map-twitter-friends-in-lists-to-local-friends-in-lists.js';
 
 export async function index(req, res) {
+  const [friends, lists] = await Promise.all([getFriends(), getLists()]);
+
+  const friendsInLists = await getFriendsInLists(lists);
+
+  const friendsWithEmbeddedLists = mapFriendsAndListsToFriendsWithEmbeddedLists(
+    friends,
+    friendsInLists
+  );
+
+  res.json(friendsWithEmbeddedLists);
+}
+
+async function getFriends() {
   const twitterResponse = await getFriendsForCurrentUser();
 
-  const localResponse = mapTwitterToLocal(twitterResponse);
+  return mapTwitterFriendsToLocalFriends(twitterResponse);
+}
 
-  res.json(localResponse);
+async function getLists() {
+  const twitterLists = await getListsForCurrentUser();
+
+  return twitterLists;
+}
+
+async function getFriendsInLists(lists) {
+  const friendsInListsRequests = lists.map(list =>
+    getFriendsInList(list.id_str)
+  );
+
+  const friendsInLists = await Promise.all(friendsInListsRequests);
+
+  return mapTwitterFriendsInListsToLocalFriendsInLists(friendsInLists);
 }
