@@ -1,6 +1,23 @@
-.identity {
+.friend {
   display: flex;
   flex-direction: row;
+  border-bottom: 1px solid blueviolet;
+}
+
+.friend > div {
+  padding: 0 1rem;
+  border-right: 1px solid blueviolet;  
+}
+
+.friend > .identity {
+  display: flex;
+  flex-direction: row;
+  width: 300px;
+}
+
+.friend > .list-checkbox {
+  width: 45px;
+  padding-top: 22px;
 }
 
 .identity > img {

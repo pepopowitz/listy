@@ -3,17 +3,17 @@ import './friend.css';
 
 export default function({ friend, lists }) {
   return (
-    <tr className="friend">
-      <td className="identity">
+    <div className="friend">
+      <div className="identity">
         <img src={friend.profileImageUrl} alt={friend.name} />
         <h4>{friend.name}</h4>
-      </td>
+      </div>
       {lists.map(list => (
-        <td key={list.id}>
+        <div key={list.id} className="list-checkbox">
           <input type="checkbox" checked={friendIsInList(friend, list)} />
-        </td>
+        </div>
       ))}
-    </tr>
+    </div>
   );
 }
 

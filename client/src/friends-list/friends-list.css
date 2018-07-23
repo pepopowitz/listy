@@ -1,28 +1,40 @@
-.friends-list {
+#friends-list {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.friends-list table {
-  table-layout: fixed;
-  border-collapse: collapse;
+#friends-header {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid blueviolet;
+  
 }
 
-.friends-list thead th {
-  width: 30px;
-  /* transform: 
-    translate(25px, 51px)
-    rotate(315deg); */
+#friends-header > div {
+  font-weight: bold;
+  flex: 0 1 auto;
+  width: 45px;
+  padding: 0 1rem;
+  text-align: left;
+  word-wrap: break-word;
+  border-right: 1px solid blueviolet;
+  font-size: 0.8rem;
 }
 
-.friends-list thead th:nth-child(1) {
-  width: 250px;
+#friends-header > div > span {
+  /* transform: rotate(-50deg); */
+  /* position: absolute; */
 }
 
-.friends-list th,
-.friends-list td {
-  padding: 5px;
-  border-collapse: collapse;
-  border: 1px solid blueviolet;  
+#friends-header > .friend-column {
+  padding: 0 1rem;
+  flex: 0 1 auto;
+  width: 300px;
+  transform: none;
+}
+
+#friends-rows {
+  height: 300px;
+  overflow-y: scroll;
 }

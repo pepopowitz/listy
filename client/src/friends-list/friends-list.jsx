@@ -8,19 +8,23 @@ export default function({ friends, lists }) {
   }
 
   return (
-    <div className="friends-list">
+    <div id="friends-list">
       <h2>My Friends!</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Friend</th>
-            {lists.map(list => <th key={list.id}>{list.name}</th>)}
-          </tr>
-        </thead>
-        <tbody>
-          {friends.map(friend => <Friend friend={friend} lists={lists} key={friend.id} />)}
-        </tbody>
-      </table>
+      <div id="friends-grid">
+        <div id="friends-header">
+          <div class="friend-column">Friend</div>
+          {lists.map(list => (
+            <div key={list.id}>
+              <span>{list.name}</span>
+            </div>
+          ))}
+        </div>
+        <div id="friends-rows">
+          {friends.map(friend => (
+            <Friend friend={friend} lists={lists} key={friend.id} />
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
