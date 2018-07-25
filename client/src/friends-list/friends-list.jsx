@@ -2,7 +2,7 @@ import React from 'react';
 import Friend from './friend';
 import './friends-list.css';
 
-export default function({ friends, lists }) {
+export default function({ friends, lists, onListMemberChanged }) {
   if (!friends || friends.length === 0) {
     return <h2>Loading....</h2>;
   }
@@ -21,7 +21,12 @@ export default function({ friends, lists }) {
         </div>
         <div id="friends-rows">
           {friends.map(friend => (
-            <Friend friend={friend} lists={lists} key={friend.id} />
+            <Friend
+              friend={friend}
+              lists={lists}
+              key={friend.id}
+              onListMemberChanged={onListMemberChanged}
+            />
           ))}
         </div>
       </div>

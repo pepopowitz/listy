@@ -1,7 +1,7 @@
 import React from 'react';
 import './friend.css';
 
-export default function({ friend, lists }) {
+export default function({ friend, lists, onListMemberChanged }) {
   return (
     <div className="friend">
       <div className="identity">
@@ -10,7 +10,11 @@ export default function({ friend, lists }) {
       </div>
       {lists.map(list => (
         <div key={list.id} className="list-checkbox">
-          <input type="checkbox" checked={friendIsInList(friend, list)} />
+          <input
+            type="checkbox"
+            checked={friendIsInList(friend, list)}
+            onChange={() => onListMemberChanged(friend, list)}
+          />
         </div>
       ))}
     </div>
@@ -20,3 +24,4 @@ export default function({ friend, lists }) {
 function friendIsInList(friend, list) {
   return friend.lists.includes(list.id);
 }
+
