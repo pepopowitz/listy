@@ -1,5 +1,3 @@
-import React from 'react';
+import FriendDetailContainer from './friend-detail.container.jsx';
 
-export default function() {
-  return <div>This is the friend detail</div>;
-}
+export default FriendDetailContainer;

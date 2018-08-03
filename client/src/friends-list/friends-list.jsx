@@ -3,10 +3,6 @@ import Friend from './friend';
 import './friends-list.css';
 
 export default function({ friends, lists, onListMemberChanged }) {
-  if (!friends || friends.length === 0) {
-    return <h2>Loading....</h2>;
-  }
-
   return (
     <div id="friends-list">
       <h2>My Friends!</h2>
