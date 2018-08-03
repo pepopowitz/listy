@@ -10,16 +10,6 @@ export async function index(req, res) {
   res.json(localResponse);
 }
 
-// TODO - this isn't really used anymore. clean it up?????
-export async function getListsWithFriends(req, res) {
-  const twitterLists = await getListsForCurrentUser();
-  const localLists = mapTwitterListsToLocalLists(twitterLists);
-  
-  const friendsInListsRequests = localLists.map(list => getFriendsForList(list));
-
-  const twitterFriendsInLists = await Promise.all(friendsInListsRequests);
-  
-  const localListsWithFriends = mapLocalListsAndTwitterFriendsToLocalListsAndFriends(localLists, twitterFriendsInLists);
-
-  res.json(localListsWithFriends);
+export async function create(req, res) {
+  throw new Error('not implemented yet: lists/twitter/create');
 }

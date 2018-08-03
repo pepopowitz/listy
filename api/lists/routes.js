@@ -13,6 +13,7 @@ var routes = Router()
 
 const backend = getBackend();
 routes.get('/', backend.index);
+routes.post('/', backend.create);
 
 export default routes;
 

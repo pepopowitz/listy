@@ -7,18 +7,3 @@ export async function getListsForCurrentUser() {
 
   return await client.get('lists/list', {});
 }
-
-
-export async function getFriendsForList(list) {
-  const client = getTwitterClient();
-
-  const friends = await client.get('lists/members', {
-    list_id: list.id,
-    count: 1000,
-  });
-
-  return {
-    listId: list.id,
-    friends: friends.users,
-  };
-}
