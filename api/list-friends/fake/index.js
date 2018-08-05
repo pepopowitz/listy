@@ -18,8 +18,6 @@ export async function removeFriendFromList(req, res) {
   res.json({ listId: req.params.listId, message: 'Friend removed from list!'});
 }
 
-
-
 export function addFriendsToList(req, res) {
   res.json({ listId: req.params.listId, message: 'added fake friends to list' });
 }

@@ -14,6 +14,7 @@ var routes = Router()
 const backend = getBackend();
 routes.get('/', backend.index);
 routes.post('/', backend.create);
+routes.put('/:id', backend.update);
 
 export default routes;
 

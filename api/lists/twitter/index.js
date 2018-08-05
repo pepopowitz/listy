@@ -13,3 +13,7 @@ export async function index(req, res) {
 export async function create(req, res) {
   throw new Error('not implemented yet: lists/twitter/create');
 }
+
+export async function update(req, res) {
+  throw new Error('not implemented yet: lists/twitter/edit');
+}
