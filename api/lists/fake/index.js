@@ -1,10 +1,22 @@
 import { lastId, lists } from './data';
 
 let myLastId = lastId;
-const myLists = lists;
 
 export function index(req, res) {
-  res.json(myLists);
+  res.json(lists);
+}
+
+export function detail(req, res) {
+  const id = req.params.id;
+
+  const match = lists.find(list => list.id === id);
+
+  if (match === undefined) {
+    res.status(404).send();
+    return;
+  }
+
+  res.json(match);
 }
 
 export function create(req, res) {
@@ -15,7 +27,7 @@ export function create(req, res) {
     uri: 'lists/' + id,
   };
 
-  myLists.push(newList);
+  lists.push(newList);
 
   res.json(newList);
 }
@@ -23,7 +35,7 @@ export function create(req, res) {
 export function update(req, res) {
   const id = req.params.id;
 
-  const match = myLists.find(list => list.id === id);
+  const match = lists.find(list => list.id === id);
 
   if (match === undefined) {
     res.status(404).send();

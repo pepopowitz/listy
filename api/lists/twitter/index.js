@@ -10,6 +10,10 @@ export async function index(req, res) {
   res.json(localResponse);
 }
 
+export async function detail(req, res) {
+  throw new Error('not implemented yet: lists/twitter/detail');
+}
+
 export async function create(req, res) {
   throw new Error('not implemented yet: lists/twitter/create');
 }

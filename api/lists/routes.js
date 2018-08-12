@@ -13,6 +13,7 @@ var routes = Router()
 
 const backend = getBackend();
 routes.get('/', backend.index);
+routes.get('/:id', backend.detail);
 routes.post('/', backend.create);
 routes.put('/:id', backend.update);
 

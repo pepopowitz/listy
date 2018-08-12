@@ -4,6 +4,19 @@ export function index(req, res) {
   res.json(friends);
 }
 
+export function detail(req, res) {
+  const id = req.params.id;
+
+  const match = friends.find(friend => friend.id === id);
+
+  if (match === undefined) {
+    res.status(404).send();
+    return;
+  }
+
+  res.json(match);
+}
+
 export function update(req, res) {
   const id = req.params.id;
 

@@ -20,6 +20,10 @@ export async function index(req, res) {
   res.json(friendsWithEmbeddedLists);
 }
 
+export async function detail(req, res) {
+  throw new Error('not implemented yet: friends/twitter/detail');
+}
+
 async function getFriends() {
   const twitterResponse = await getFriendsForCurrentUser();
 

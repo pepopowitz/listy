@@ -1,6 +1,5 @@
 import React from 'react';
-
-// api stuff
+import getFriend from './api/get-friend';
 
 import Loading from '../loading';
 import FriendDetail from './friend-detail';
@@ -11,15 +10,14 @@ export default class FriendDetailContainer extends React.Component {
   };
 
   async componentDidMount() {
-    window.setTimeout(() => {
-      this.setState({
-        friend: {
-          // this.props.match is passed through via react router
-          id: this.props.match.params.id,
-          name: 'Mr. Fluffypants'
-        }
-      })
-    }, 2000);
+    // this.props.match is passed in via react.router
+    const friendId = this.props.match.params.id;
+
+    const friend = await getFriend(friendId);
+
+    this.setState({
+      friend
+    });
   }
 
   render() {
