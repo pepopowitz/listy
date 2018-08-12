@@ -1,3 +1,38 @@
+import { friends } from '../../friends/fake/data';
+
+export async function addFriendToList(req, res) {
+  const { listId } = req.params;
+  const { friendId } = req.query;
+
+  const friend = friends.find(f => f.id === friendId);
+
+  if (friend === undefined) {
+    res.status(404).send();
+  }
+
+  if (!friend.lists.includes(listId)) {
+    friend.lists.push(listId);
+  }
+
+  res.json(friend);
+}
+
+export async function removeFriendFromList(req, res) {
+  const { listId } = req.params;
+  const { friendId } = req.query;
+
+  const friend = friends.find(f => f.id === friendId);
+
+  if (friend === undefined) {
+    res.status(404).send();
+  }
+
+  friend.lists = friend.lists.filter(list => list !== listId);
+
+  res.json(friend);
+}
+
+// todo - remove vvvv
 export function index(req, res) {
   res.json([
     {
@@ -7,15 +42,6 @@ export function index(req, res) {
       friendName: 'a fake friend',
     },
   ]);
-}
-
-
-export async function addFriendToList(req, res) {
-  res.json({ listId: req.params.listId, message: 'Friend added to list!'});
-}
-
-export async function removeFriendFromList(req, res) {
-  res.json({ listId: req.params.listId, message: 'Friend removed from list!'});
 }
 
 export function addFriendsToList(req, res) {
