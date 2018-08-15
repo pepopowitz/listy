@@ -3,11 +3,13 @@ import getFriend from './api/get-friend';
 import updateFriend from './api/update-friend';
 
 import Loading from '../junk-drawer/loading';
-import FriendDetail from './friend-detail';
+import FriendDetailView from './friend-detail.view';
+import FriendDetailEdit from './friend-detail.edit';
 
 export default class FriendDetailContainer extends React.Component {
   state = {
-    friend: undefined
+    friend: undefined,
+    isEditing: false,
   };
 
   async componentDidMount() {
@@ -17,7 +19,7 @@ export default class FriendDetailContainer extends React.Component {
     const friend = await getFriend(friendId);
 
     this.setState({
-      friend
+      friend,
     });
   }
 
@@ -25,8 +27,52 @@ export default class FriendDetailContainer extends React.Component {
     if (this.state.friend === undefined) {
       return <Loading />;
     }
-    
-    return <FriendDetail
-      friend={this.state.friend} />
+
+    if (this.state.isEditing) {
+      return (
+        <FriendDetailEdit
+          friend={this.state.friend}
+          onChange={this.handleChange}
+          onCancel={this.handleCancel}
+          onSave={this.handleSave}
+        />
+      );
+    }
+
+    return <FriendDetailView friend={this.state.friend} onEdit={this.handleEdit} />;
   }
+
+  handleEdit = () => {
+    this.setState({
+      isEditing: true,
+    });
+  };
+
+  handleChange = event => {
+    const value = event.target.value;
+    this.setState(prevState => {
+      return {
+        ...prevState,
+        friend: {
+          ...prevState.friend,
+          name: value,
+        },
+      };
+    });
+  };
+
+  handleCancel = () => {
+    this.setState({
+      isEditing: false,
+    });
+  };
+
+  handleSave = async event => {
+    event.preventDefault();
+
+    await updateFriend(this.state.friend);
+    this.setState({
+      isEditing: false,
+    });
+  };
 }
