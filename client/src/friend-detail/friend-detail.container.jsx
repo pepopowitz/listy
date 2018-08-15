@@ -1,7 +1,8 @@
 import React from 'react';
 import getFriend from './api/get-friend';
+import updateFriend from './api/update-friend';
 
-import Loading from '../loading';
+import Loading from '../junk-drawer/loading';
 import FriendDetail from './friend-detail';
 
 export default class FriendDetailContainer extends React.Component {

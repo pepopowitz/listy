@@ -1,8 +1,9 @@
 import React from 'react';
+import SecondaryPage from '../junk-drawer/secondary-page';
 
 export default function ListDetailView({ list, onEdit }) {
   return (
-    <div className="list-detail-view">
+    <SecondaryPage>
       <div className="actions">
         <button type="button" onClick={onEdit}>
           Edit
@@ -15,6 +16,6 @@ export default function ListDetailView({ list, onEdit }) {
           <dt>{list.name}</dt>
         </dl>
       </div>
-    </div>
+    </SecondaryPage>
   );
 }

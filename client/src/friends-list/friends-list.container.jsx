@@ -5,7 +5,7 @@ import getLists from './api/get-lists';
 import addFriendToList from './api/add-friend-to-list';
 import removeFriendFromList from './api/remove-friend-from-list';
 
-import Loading from '../loading';
+import Loading from '../junk-drawer/loading';
 import FriendsList from './friends-list';
 
 export default class FriendsListContainer extends React.Component {

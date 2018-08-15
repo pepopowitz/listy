@@ -2,8 +2,9 @@ import React from 'react';
 import getList from './api/get-list';
 import updateList from './api/update-list';
 
-import Loading from '../loading';
-import ListDetail from './list-detail';
+import Loading from '../junk-drawer/loading';
+import ListDetailView from './list-detail.view';
+import ListDetailEdit from './list-detail.edit';
 
 export default class ListDetailContainer extends React.Component {
   state = {
@@ -27,16 +28,18 @@ export default class ListDetailContainer extends React.Component {
       return <Loading />;
     }
 
-    return (
-      <ListDetail
-        list={this.state.list}
-        isEditing={this.state.isEditing}
-        onEdit={this.handleEdit}
-        onChange={this.handleChange}
-        onCancel={this.handleCancel}
-        onSave={this.handleSave}
-      />
-    );
+    if (this.state.isEditing) {
+      return (
+        <ListDetailEdit
+          list={this.state.list}
+          onChange={this.handleChange}
+          onCancel={this.handleCancel}
+          onSave={this.handleSave}
+        />
+      );
+    }
+
+    return <ListDetailView list={this.state.list} onEdit={this.handleEdit} />;
   }
 
   handleEdit = () => {
@@ -64,9 +67,9 @@ export default class ListDetailContainer extends React.Component {
     });
   };
 
-  handleSave = async (event) => {
+  handleSave = async event => {
     event.preventDefault();
-    
+
     await updateList(this.state.list);
     this.setState({
       isEditing: false,
