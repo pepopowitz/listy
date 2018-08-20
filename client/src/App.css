@@ -13,6 +13,42 @@ h3 {
   font-family: 'Pacifico', cursive;
 }
 
-a, a:hover, a:visited, a:active {
+a,
+a:hover,
+a:visited,
+a:active {
   color: gray;
 }
+
+button {
+  border-width: 1px;
+  border-top: 1px solid #dedede;
+  background: #c9c9c9;
+  background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#c9c9c9));
+  background: -webkit-linear-gradient(top, #ffffff, #c9c9c9);
+  background: -moz-linear-gradient(top, #ffffff, #c9c9c9);
+  background: -ms-linear-gradient(top, #ffffff, #c9c9c9);
+  background: -o-linear-gradient(top, #ffffff, #c9c9c9);
+  padding: 8px 16px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+  -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+  box-shadow: rgba(0,0,0,1) 0 1px 0;
+  text-shadow: rgba(0,0,0,.4) 0 1px 0;
+  color: #0f0f0f;
+  font-size: 13px;
+  font-family: Helvetica, Arial, Sans-Serif;
+  text-decoration: none;
+  vertical-align: middle;
+  }
+button:hover {
+  border-top-color: #737373;
+  background: #737373;
+  color: #ebebeb;
+  }
+button:active {
+  border-top-color: #595959;
+  background: #595959;
+  }
