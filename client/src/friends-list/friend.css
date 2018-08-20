@@ -1,12 +1,24 @@
 .friend {
   display: flex;
   flex-direction: row;
-  border-bottom: 1px solid blueviolet;
+  border-bottom: 1px solid;
+}
+.friend.green {
+  border-bottom-color: teal;
+}
+.friend.purple {
+  border-bottom-color: blueviolet;
 }
 
 .friend > div {
   padding: 0 1rem;
-  border-right: 1px solid blueviolet;  
+  border-right: 1px solid;
+}
+.friend.green > div {
+  border-right-color: teal;
+}
+.friend.purple > div {
+  border-right-color: blueviolet;
 }
 
 .friend > .identity {
@@ -28,4 +40,11 @@
   height: 80px;
   border-radius: 50%;
   margin-right: 1rem;
+  border: 3px solid;
+}
+.friend.green .identity img {
+  border-color: teal;
+}
+.friend.purple .identity img {
+  border-color: blueviolet;
 }

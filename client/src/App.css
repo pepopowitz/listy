@@ -7,36 +7,12 @@
   height: 80px;
 }
 
-.App-header {
-  background-color: blueviolet;
-  padding: 20px;
-  color: white;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-}
-
-.App-title {
-  font-size: 3.5rem;
-  font-family: 'Pacifico', cursive;
-  margin-right: 4rem;
-  margin-bottom: 2rem;
-  line-height: 3.5rem;
-}
-
-.App-subtitle {
-  font-size: 1.5rem;
-  font-family: 'Pacifico', cursive;
-  line-height: 3.5rem;
-  margin-bottom: 2rem;
-}
-
-.App-intro {
-  font-size: large;
-}
-
 h1,
 h2,
 h3 {
   font-family: 'Pacifico', cursive;
+}
+
+a, a:hover, a:visited, a:active {
+  color: gray;
 }

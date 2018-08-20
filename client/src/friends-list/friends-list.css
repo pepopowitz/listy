@@ -7,8 +7,13 @@
 #friends-header {
   display: flex;
   flex-direction: row;
-  border-bottom: 1px solid blueviolet;
-  
+  border-bottom: 1px solid;
+}
+#friends-list.green #friends-header {
+  border-bottom-color: teal;
+}
+#friends-list.purple #friends-header {
+  border-bottom-color: blueviolet;
 }
 
 #friends-header > div {
@@ -18,13 +23,14 @@
   padding: 0 1rem;
   text-align: left;
   word-wrap: break-word;
-  border-right: 1px solid blueviolet;
+  border-right: 1px solid;
   font-size: 0.8rem;
 }
-
-#friends-header > div > span {
-  /* transform: rotate(-50deg); */
-  /* position: absolute; */
+#friends-list.green #friends-header>div {
+  border-right-color: teal;
+}
+#friends-list.purple #friends-header>div {
+  border-right-color: blueviolet;
 }
 
 #friends-header > .friend-column {
