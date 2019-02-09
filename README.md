@@ -3,15 +3,13 @@
 
 Hi, this is Listy! 
 
-Listy is an app for managing lists of things. It exists to support a workshop that I'm currently building, called "Building Your First React App".
-
-
+Listy is an app for managing lists of things. It came into existence to support a workshop that I built called ["Building Your First React App"](https://github.com/pepopowitz/your-first-react-app-exercises). It also exists to make it easier to manage Twitter lists, making an awful experience slightly less awful. 
 
 ## Running the app
 
 ### Install dependencies
 
-You'll need to install dependencies in two places - once for the API, and once for the React app.
+You'll need to install dependencies in two places - once for the API, and once for the React app. Sorry!
 
 In a console, run the following statements.
 
@@ -48,28 +46,6 @@ This will start up both the React app and API in a single terminal. Changes to e
 
 ## The workshop
 
-The abstract for the workshop associated with this repo currently looks like this:
+The abstract for the workshop associated with this repo [lives here](https://www.stevenhicks.me/workshops/building-your-first-react-app/).
 
-
-### Building Your First React App
-
-In this workshop, you'll learn how to build a single-page app with React. We'll discuss the fundamentals of React development, the "React" way of building apps, and suggestions for writing maintainable React code. You'll get hands-on experience with JSX, React Router, several methods of managing state, and testing tools like Jest and Enzyme.
-
-We'll be creating an app to keep track of all the adorable kittens and puppies that we love. The React landscape is extensive, and we can't cover it all - but you'll leave this workshop feeling confident to build your next app with React.
-
-This session includes a healthy balance of instruction and hands-on activities. We'll cover a broad variety of topics required to build a React app:
-
-* React fundamentals
-* The 'Component' mindset
-* JSX, a strange-looking hybrid between JavaScript and HTML
-* Verifying component inputs
-* Styling React components
-* Routing
-* State management
-* Automated testing
-* Best practices
-
-Experience with HTML, CSS, and JavaScript is required. You'll need Git v2.15.0 or higher, NodeJS v8.9.4 or higher, NPM v5.6.0 or higher, and a text editor of your choosing.
-
-A URL with specific prerequisite instructions and code/instructions for the exercises will be provided prior to the event.
-
+It's a good workshop! If you're interested in me giving it to your company or at an event, [let me know](https://github.com/pepopowitz/listy/issues/new).
